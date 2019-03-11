@@ -1,0 +1,11 @@
+.weekDays{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-auto-rows: auto;
+}
+.weekDays :first-child{
+  grid-column:1/4;
+}
+.weekDays :last-child{
+  grid-column:2/3;
+}

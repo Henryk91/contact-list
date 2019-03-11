@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('./views/Components/SearchBar/style.css');
+@import url('./views/Components/Home/style.css');
+@import url('./views/Components/ContactDetail/style.css');
+h1 {
+  color: 	#FEBF34;
+}
+h3 , h2{
+  color: white;
+}
+body {
+  background-color: #003756;
+  color: #18b2be;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  margin: auto;
+}
+button{
+  background: #007998;
+  border: none;
+  margin: 5px;
+  padding: 2px;
+  color: white;
+  border-radius: 2px;
+}
+Link{
+  text-decoration: unset;
+  color: white;
+}
+#darkSkyLogo{
+  width: 200px;
+}
+input{
+  text-align: center;
+  background: #007998;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  width: 200px;
+}
+#quickDay{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-auto-rows: auto;
+}
+.blueHover:hover{
+  background: rgba(0, 121, 152, 0.5);
+}
+@media(min-width: 1000px){
+  #quickDay, .weatherLine, .bigScreen{
+    margin-left:20vw;
+    width: 60vw; 
+  }
+}
+h2{
+  margin: 0px;
+}
+p{
+  color: white;
+}
+.yellowP{
+ color: 	#FEBF34;
+}
+.leadP{
+  color: 	#FEBF34;
+  font-size: 16px; 
+  font-weight: bolder;
+}
+#links{
+  margin-top: 10px;
+  background-color: #007998;
+}
+.yellowLink{
+  color: 	#FEBF34;
+  font-size: 20px;
+  margin: 0px 5px 0px 5px;
+  font-weight: bolder;
+}
+.yellowLink:hover{
+  border: 1px solid #FEBF34;
+  border-radius: 2px;
+  padding: 1px;
+}
+.loader {
+  display:grid;
+  position: fixed;
+  margin-top: 20vh; 
+  margin-left: 46vw; 
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid  #007998;
+  border-radius: 50%;
+  width: 5vw;
+  height: 5vw;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+*:focus {
+  outline: none;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}

@@ -1,0 +1,13 @@
+#locationBox{
+  font-size: 25px;
+}
+.searchButton{
+  height: 30px;
+  width: 30px;
+}
+i{
+  margin: 2px;
+}
+header{
+  margin-top: 10px;
+}
