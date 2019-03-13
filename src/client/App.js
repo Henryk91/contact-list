@@ -81,25 +81,26 @@ export default class App extends Component {
             <nav className="bigScreen" id="links">
               <Link
                 onClick={this.getMyContacts}
-                className="yellowLink"
+                className="navLink"
                 to="/"
                 title="Contact List">
                 My Contacts
               </Link>
               <Link
                 onClick={this.getAllContacts}
-                className="yellowLink"
+                className="navLink"
                 to="/"
                 title="Contact List">
                 All Contacts
               </Link>
-              
-              <Link
-              id="lastNavLink"
-                className="yellowLink"
-                to={`/new-contact/`}>
-                <span>Add Contact</span>
+              <span>
+                <Link
+                  id="lastNavLink"
+                  className="navLink"
+                  to={`/new-contact/`}>
+                  Add Contact
               </Link>
+              </span>
             </nav>
           </header>
           <Route
