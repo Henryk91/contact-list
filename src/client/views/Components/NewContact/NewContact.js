@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import { EditContactCheck } from '../index';
 
 export default class NewContact extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      radioType: "Number"
+    }
     this.addNewUser = this.addNewUser.bind(this)
+    this.setRadioType = this.setRadioType.bind(this)
   }
 
   addNewUser = (event) => {
@@ -11,42 +16,36 @@ export default class NewContact extends Component {
     let firstName = event.target.firstName.value
     let lastName = event.target.lastName.value
     let number = event.target.number.value
-    let email = event.target.email.value
-    console.log(event.target.firstName.value)  
-    console.log(event.target.lastName.value)  
-    console.log(event.target.numberType.value)    
-    console.log(event.target.number.value)  
-    console.log(event.target.emailType.value)  
-    console.log(event.target.email.value)
+    let tag = event.target.tagType.value
+
+    tag === "Other" ? tag = event.target.tagTypeText.value : tag
 
     let uniqueId = docId();
     console.log(uniqueId)
     var contact = {
       "id": uniqueId,
-      "addedBy" : "me",
-      "name": firstName + " " + lastName,
-      "firstName" : firstName,
-      "lastName" : lastName,
-      "number" : [number],
-      "email" : [email]
+      "createdBy": "Unknown",
+      "firstName": firstName,
+      "lastName": lastName,
+      "dataLable": [{ "tag": tag, "data": number }]
     }
     this.setState({ showAddItem: false })
-    this.props.set({contact})
+    this.props.set({ contact })
+  }
+
+  setRadioType(type) {
+    this.setState({ radioType: type })
   }
 
   render() {
-
     return (
       <form onSubmit={this.addNewUser}>
-          <br />
-          <input name="firstName" type="text" placeholder="First Name" required="required"></input><br />
-          <input name="lastName" type="text" placeholder="last Name" required="required"></input><br /><br />
-          <input name="numberType" type="text" placeholder="Number Type eg: Home"></input><br />
-          <input name="number" type="text" placeholder="Number"></input><br /><br />
-          <input name="emailType" type="text" placeholder="Email Type eg: Work"></input><br />
-          <input name="email" type="email" placeholder="Email"></input><br />
+        <br />
+        <input name="firstName" type="text" placeholder="First Name" required="required"></input><br />
+        <input name="lastName" type="text" placeholder="last Name" required="required"></input><br /><br />
+        <EditContactCheck />
           <button type="submit" >Submit</button>
-    </form>
+      </form>
     )
   }
 }

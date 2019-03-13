@@ -1,16 +1,16 @@
 
-# React Weather App
+# React Contact List
 
 ## Introduction
 
-This is react weather app that gets data via a back-end server from [Dark Sky Api](https://darksky.net/dev/docs).
+This is React contact list app that gets data via a Node back-end server from a Mongo Database.
 
-There are two ways to pick a location, either by typing the location in a search bar or letting the app discover your location.
-There are also two weather display modes to choose from: This Week and Select By day.
-- This Week has a quick overview of the week and by clicking a more detailed daily weather breakdown is given.
-- In Select By Day you can choose your day and receive a detailed breakdown of that day.
+Once loaded add a username at the top and click on either my contacts or all contacts
 
-A live demo version can be found [here](https://henryk91-weather.glitch.me) 
+- My Contacts will only show contacts created by you.
+- All Contacts will show all contacts in the list.
+
+A live demo version can be found [here](https://henryk91-contact.glitch.me) 
 
 ### Development mode
 
@@ -28,10 +28,10 @@ Testing is done with a Jest/Enzyme combination. The folder also contains a snaps
 
 ```bash
 # Clone the repository
-git clone https://github.com/Henryk91/weather.git
+git clone https://github.com/Henryk91/contact-list.git
 
 # Go inside the directory
-cd weather
+cd contact-list
 
 # Install dependencies
 npm install
@@ -66,9 +66,9 @@ All components are in their own folder (src/client/view/component) with the css 
 
 ## Specifics
 
-### Api Key
+### Mongo Database Key
 
-Dark Sky Api requires an api key to request data. A file with the name .env needs to be set up to store the api key in this format: Api_Key='wdacwef1v2svesv81v8wef81s1evef8e' (no spaces as this is a shell file)
+A file with the name .env needs to be set up to store the api key in this format: DB='<url-with-username-and-password>' (no spaces as this is a shell file)
 
 ### Ports
 

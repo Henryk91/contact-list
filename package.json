@@ -1,7 +1,7 @@
 {
-  "name": "weather",
+  "name": "contact-list",
   "version": "1.0.0",
-  "description": "Dark Sky Api App",
+  "description": "Contact list App with a node mongo backend",
   "main": "src/server/index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -17,8 +17,11 @@
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.3",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.19",
     "node-fetch": "^2.3.0",
     "react": "^16.5.2",
     "react-animated-weather": "^2.0.0",

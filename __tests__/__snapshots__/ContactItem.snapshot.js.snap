@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactItem component renders all details 1`] = `
+<div>
+  <div>
+    <div
+      className="contactItemBox"
+    >
+      <p
+        className="contactItem"
+      >
+        0808080
+      </p>
+      <button
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Del
+      </button>
+      <br />
+    </div>
+  </div>
+</div>
+`;

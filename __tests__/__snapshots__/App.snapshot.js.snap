@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders all details 1`] = `
+<div>
+  <header>
+    <header>
+      <input
+        aria-label="User Name"
+        defaultValue={null}
+        id="userNameBox"
+        onKeyUp={[Function]}
+        placeholder="Add Username"
+        type="text"
+      />
+      <br />
+      <input
+        aria-label="Search Name"
+        id="searchBox"
+        onKeyUp={[Function]}
+        placeholder="Search By Name..."
+        type="text"
+      />
+    </header>
+    <nav
+      className="bigScreen"
+      id="links"
+    >
+      <a
+        className="yellowLink"
+        href="/"
+        onClick={[Function]}
+        title="Contact List"
+      >
+        My Contacts
+      </a>
+      <a
+        className="yellowLink"
+        href="/"
+        onClick={[Function]}
+        title="Contact List"
+      >
+        All Contacts
+      </a>
+      <a
+        className="yellowLink"
+        href="/new-contact/"
+        id="lastNavLink"
+        onClick={[Function]}
+      >
+        <span>
+          Add Contact
+        </span>
+      </a>
+    </nav>
+  </header>
+  <div
+    id="home"
+  >
+    <h3>
+      Please add your name at the top then 
+      <br />
+       click My Contacts or All Contacts.
+    </h3>
+  </div>
+</div>
+`;

@@ -1,17 +1,17 @@
+export function getAllContacts(next) {
+    fetch(`/api/contact?user=all`)
+        .then(res => res.json())
+        .then(data => {
+            next(data)
+        })
+        .catch((error) => {
+            next(error)
+        });
+}
 
-export function getCoordinatesFromName(title, next) {
-    fetch('https://nominatim.openstreetmap.org/search/' + title + '?format=json&limit=1')
-        .then(res => res.json())
-        .then(data => {
+export function getMyContacts(user, next) {
 
-            data.length > 0 ? getWeather(data[0].lat, data[0].lon, next) : next("Error")
-        })
-        .catch((error) => {
-            next(error)
-        });
-}
-export function getGeoloc(next) {
-    fetch('https://ipapi.co/json')
+    fetch(`/api/contact?user=` + user)
         .then(res => res.json())
         .then(data => {
             next(data)
@@ -20,23 +20,27 @@ export function getGeoloc(next) {
             next(error)
         });
 }
-export function getWeather(latitude, longitude, next) {
-    fetch(`/api/weather?coordinates=${latitude},${longitude}`)
-        .then(res => res.json())
-        .then(data => {
-            next(data)
-        })
-        .catch((error) => {
-            next(error)
-        });
+
+export function updateContact(contact, next) {
+
+    fetch(`/api/update`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+    })
+        .then(response => console.log(response));
 }
-export function getWeatherByDate(weatherData, title, next) {
-    fetch(`/api/weather?coordinates=${weatherData.latitude},${weatherData.longitude},${title}T12:00:00`)
-        .then(res => res.json())
-        .then(data => {
-            next(data)
-        })
-        .catch((error) => {
-            next(error)
-        });
+export function saveNewContact(newContact, next) {
+
+    fetch(`/api/save`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newContact),
+    })
+        .then(response => console.log(response));
+
 }

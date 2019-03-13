@@ -1,3 +1,40 @@
 .contactItem{
     display: inline-block;
 }
+#detailBackButton:hover{
+    background: rgba(16, 55, 73, 0.7);
+  }
+.detailedBox{
+    background: rgb(241, 241, 241);
+    border: 1px solid rgb(185, 185, 185);
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 2px;
+    text-align: left;
+    padding-left: 20px; 
+}
+.detailedBox > div{
+    padding: 0px;
+    margin: 0px;
+}
+.detailEditBoxButton{
+    font-size: 20px;
+}
+@media(min-width: 1000px){
+    .detailedBox{
+      width: 40vw;
+      margin-left: 30vw;
+    }
+  }
+  #detailBackButton{
+    position: fixed;
+    top:40vh;
+    right: 10vw;
+    font-size: 20px;
+    color: white;
+    background: rgb(16, 55, 73);
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 2px !important;
+    padding:5px;
+}
+

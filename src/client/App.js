@@ -1,7 +1,9 @@
 
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { History, Home, Detailed, SearchBar , ContactDetail , NewContact} from './views/Components/index';
+import { Home, SearchBar, ContactDetail, NewContact } from './views/Components/index';
+import { getAllContacts, getMyContacts, saveNewContact, updateContact } from '../client/views/Helpers/requests'
+
 
 export default class App extends Component {
   constructor(props) {
@@ -9,65 +11,95 @@ export default class App extends Component {
     this.state = {
       contacts: null,
       limitContacts: null,
-      filteredContacts: null
+      filteredContacts: null,
+      user: ''
     }
     this.addNewContact = this.addNewContact.bind(this)
     this.updateContact = this.updateContact.bind(this)
     this.setFilterContact = this.setFilterContact.bind(this)
+    this.getAllContacts = this.getAllContacts.bind(this)
+    this.getMyContacts = this.getMyContacts.bind(this)
   }
 
   componentWillMount() {
-
-    fetch(`/api/contact`)
-      .then(res => res.json())
-      .then(data => {
-
-        this.setState({ contacts: data , filteredContacts: data})
-
-      })
-      .catch((error) => {
-        next(error)
-      });
-
+    var user = localStorage.getItem("user")
+    user !== null ? this.setState({ user }) : null
   }
 
-  addNewContact = (val) =>{
+  addNewContact = (val) => {
     let contacts = this.state.contacts;
-    console.log(val)
+    let user = this.state.user;
+
+    user !== '' ? val.contact.createdBy = user : null
     let updatedContact = [...contacts, val.contact]
-    // this.setState({contacts: })
-    this.setState({ contacts: updatedContact , filteredContacts: updatedContact})
+    saveNewContact(val.contact, () => alert("setn"))
+    this.setState({ contacts: updatedContact, filteredContacts: updatedContact })
   }
 
   updateContact = (update) => {
-
     let contacts = this.state.contacts;
-
     let index = contacts.indexOf((val) => val.id === update.id)
     contacts[index] = update
-
-    this.setState({contacts})
-    console.log(update)
+    updateContact(update, () => alert("setn"))
+    this.setState({ contacts, filteredContacts: contacts })
   }
 
+  getAllContacts() {
+    let user = this.state.user
+    if (user !== '') {
+      getAllContacts((res) => {
+        res.sort(compareSort)
+        this.setState({ contacts: res, filteredContacts: res })
+      })
+    } else {
+      alert("Please add username at the top")
+    }
+  }
 
-  setFilterContact(val){
-    console.log(val.filteredContacts)
-    this.setState({filteredContacts: val.filteredContacts})
+  getMyContacts() {
+    let user = this.state.user
+    if (user !== '') {
+      getMyContacts(user, (res) => {
+        res.sort(compareSort)
+        this.setState({ contacts: res, filteredContacts: res })
+      })
+    } else {
+      alert("Please add username at the top")
+    }
+  }
+
+  setFilterContact(val) {
+    this.setState({ filteredContacts: val.filteredContacts, user: val.user })
   }
 
   render() {
-    
     return (
       <Router>
         <div>
           <header>
-            <SearchBar set={this.setFilterContact} contacts={this.state.contacts}/>
+            <SearchBar set={this.setFilterContact} contacts={this.state.contacts} />
             <nav className="bigScreen" id="links">
-              <Link className="yellowLink" to="/" title="Contact List">Contacts</Link>
-              <Link className="yellowLink" to={`/new-contact/`}>
-                    Add Contact
-                </Link>
+              <Link
+                onClick={this.getMyContacts}
+                className="yellowLink"
+                to="/"
+                title="Contact List">
+                My Contacts
+              </Link>
+              <Link
+                onClick={this.getAllContacts}
+                className="yellowLink"
+                to="/"
+                title="Contact List">
+                All Contacts
+              </Link>
+              
+              <Link
+              id="lastNavLink"
+                className="yellowLink"
+                to={`/new-contact/`}>
+                <span>Add Contact</span>
+              </Link>
             </nav>
           </header>
           <Route
@@ -78,14 +110,27 @@ export default class App extends Component {
             exact path='/contacts/:id'
             render={(props) => <ContactDetail {...props} set={this.updateContact} contacts={this.state.contacts} />}
           />
-
           <Route
             exact path='/new-contact'
             component={() => <NewContact set={this.addNewContact} />}
           />
-         
         </div>
       </Router>
     )
   }
+}
+
+
+let compareSort = (a, b) => {
+
+  const nameA = a.firstName.toUpperCase();
+  const nameB = b.firstName.toUpperCase();
+
+  let comparison = 0;
+  if (nameA > nameB) {
+    comparison = 1;
+  } else if (nameA < nameB) {
+    comparison = -1;
+  }
+  return comparison;
 }

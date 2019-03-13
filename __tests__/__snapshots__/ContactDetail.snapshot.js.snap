@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactDetail component renders all details 1`] = `
+<div>
+  <a
+    href="/"
+    id="detailBackButton"
+    onClick={[Function]}
+    title="Contact List"
+  >
+    Back
+  </a>
+</div>
+`;

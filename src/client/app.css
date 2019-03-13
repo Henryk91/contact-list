@@ -1,42 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('./views/Components/SearchBar/style.css');
-@import url('./views/Components/Home/style.css');
-@import url('./views/Components/ContactDetail/style.css');
-h1 {
-  color: 	#FEBF34;
+
+header{
+  padding-bottom: 10px;
 }
-h3 , h2{
-  color: white;
+
+h1 , h3 , h2{
+  color: #231f20;
 }
 body {
-  background-color: #003756;
-  color: #18b2be;
+  background-color: #eef3f6;
+  color: #7c7c80;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   margin: auto;
 }
+
 button{
-  background: #007998;
+  background: rgb(16, 55, 73);
   border: none;
   margin: 5px;
   padding: 2px;
   color: white;
   border-radius: 2px;
+  text-align: right;
+  font-size: 18px;
+}
+button:hover{
+  background: rgba(16, 55, 73, 0.7);
 }
 Link{
   text-decoration: unset;
   color: white;
 }
-#darkSkyLogo{
-  width: 200px;
+p{
+  font-size: 18px;
 }
-input{
+input[type="text"],[type="email"],[type="number"]{
   text-align: center;
-  background: #007998;
+  background: rgb(16, 55, 73);
   color: white;
   border: none;
   border-radius: 2px;
+  margin-top: 5px;
   width: 200px;
+  font-size: 18px;
 }
 #quickDay{
   display:grid;
@@ -44,20 +51,25 @@ input{
   grid-auto-rows: auto;
 }
 .blueHover:hover{
-  background: rgba(0, 121, 152, 0.5);
+  background: rgba(16, 55, 73, 0.5);
 }
 @media(min-width: 1000px){
   #quickDay, .weatherLine, .bigScreen{
     margin-left:20vw;
     width: 60vw; 
   }
+  #pushOver{
+    width: 0px;
+  }
+}
+
+@media(max-width: 600px){
+  span::before {content: '\A'; white-space: pre;}
 }
 h2{
   margin: 0px;
 }
-p{
-  color: white;
-}
+
 .yellowP{
  color: 	#FEBF34;
 }
@@ -68,31 +80,20 @@ p{
 }
 #links{
   margin-top: 10px;
-  background-color: #007998;
+  background: rgb(16, 55, 73);
 }
 .yellowLink{
-  color: 	#FEBF34;
+  color: 	white;
   font-size: 20px;
   margin: 0px 5px 0px 5px;
   font-weight: bolder;
 }
 .yellowLink:hover{
-  border: 1px solid #FEBF34;
+  border: 1px solid white;
   border-radius: 2px;
   padding: 1px;
 }
-.loader {
-  display:grid;
-  position: fixed;
-  margin-top: 20vh; 
-  margin-left: 46vw; 
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid  #007998;
-  border-radius: 50%;
-  width: 5vw;
-  height: 5vw;
-  animation: spin 1s linear infinite;
-}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -110,3 +111,10 @@ p{
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: white;
 }
+
+@import url('./views/Components/SearchBar/style.css');
+@import url('./views/Components/Home/style.css');
+@import url('./views/Components/ContactDetail/style.css');
+@import url('./views/Components/NewContact/style.css');
+@import url('./views/Components/ContactItem/style.css');
+@import url('./views/Components/EditContactCheck/style.css');
