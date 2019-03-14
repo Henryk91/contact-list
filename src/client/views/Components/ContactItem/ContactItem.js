@@ -32,7 +32,7 @@ export default class ContactItem extends Component {
   editItemBox(item) {
 
     return (
-      <form onSubmit={this.submitChange} className="contactItemBox">
+      <form onSubmit={this.submitChange} className="contactItemBox" id="contactItemEditBox">
         <input name="item" type="text" defaultValue={item}></input>
         <button type="submit">Submit</button>
         <button onClick={() => this.setState({ editingItem: false })}>Cancel</button>
@@ -56,7 +56,7 @@ export default class ContactItem extends Component {
     let editing = this.state.editingItem
     return (
       <div key={item}>
-        {item ? <div>{editing ? this.editItemBox(item) : this.displayItemBox(item)}</div> : null}
+        {item ? <div className="contactTagBox">{editing ? this.editItemBox(item) : this.displayItemBox(item)}</div> : null}
       </div>
     )
   }

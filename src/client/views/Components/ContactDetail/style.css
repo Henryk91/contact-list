@@ -1,17 +1,17 @@
 .contactItem{
     display: inline-block;
 }
-#detailBackButton:hover{
-    background: rgba(16, 55, 73, 0.7);
-  }
+
 .detailedBox{
     background: rgb(241, 241, 241);
     border: 1px solid rgb(185, 185, 185);
-    width: 75vw;
+    width: 70vw;
     margin-left: 10vw;
     margin-top: 2px;
     text-align: left;
     padding-left: 5vw; 
+    padding-right: 5vw;
+    height: fit-content;
 }
 .detailedBox > div{
     padding: 0px;
@@ -23,7 +23,7 @@
 @media(min-width: 1000px){
     .detailedBox{
       width: 40vw;
-      margin-left: 30vw;
+      margin-left: 25vw;
     }
   }
   #detailBackButton{
@@ -37,5 +37,8 @@
     border-radius: 2px !important;
     padding:5px;
     z-index: 1000;
+}
+#detailBackButton:hover{
+  background: rgba(16, 55, 73, 0.7);
 }
 
