@@ -22,7 +22,7 @@
     "express": "^4.16.3",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.19",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "react": "^16.5.2",
     "react-animated-weather": "^2.0.0",
     "react-dom": "^16.5.2",
